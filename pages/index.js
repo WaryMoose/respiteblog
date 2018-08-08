@@ -20,7 +20,11 @@ export default class extends React.Component {
         return (
             <div className="main-body">
                 <Header />
-                <BlogPost />
+                {
+                    this.props.res.posts.map((item, i) => {
+                        return <BlogPost key={ i } post={ item }/>
+                    })
+                }
             </div>
         )
     }
