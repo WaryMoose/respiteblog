@@ -1,0 +1,25 @@
+{
+  "name": "blogrespite",
+  "version": "0.0.1",
+  "description": "blog made with react and headless worpress cms",
+  "main": "index.js",
+  "author": "oshanshrestha <oshan.shr22@gmmail.com>",
+  "license": "UNLICENCED",
+  "private": true,
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-css": "^0.1.0",
+    "gulp-less": "^4.0.1",
+    "gulp-uglify": "^3.0.1",
+    "next": "^6.1.1",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-fontawesome": "^1.6.1"
+  },
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "launch": "next build && next start -p $PORT"
+  }
+}
