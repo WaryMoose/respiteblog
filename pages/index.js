@@ -5,6 +5,7 @@ import 'isomorphic-fetch'
 import Config  from '../components/Config'
 
 import Header  from '../components/Header'
+import BlogPost  from '../components/BlogPost'
 
 export default class extends React.Component {
 
@@ -19,6 +20,7 @@ export default class extends React.Component {
         return (
             <div className="main-body">
                 <Header />
+                <BlogPost />
             </div>
         )
     }
