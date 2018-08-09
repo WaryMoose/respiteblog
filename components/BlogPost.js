@@ -1,11 +1,16 @@
 import React from 'react'
+import Link from 'next/link'
 
 
 export default class BlogPost extends React.Component {
     render() {
         return (
             <div className="blog-post">
-                <PostDate month={ this.props.post.date.substr(5, 2) } date={ this.props.post.date.substr(8, 2) } year={ this.props.post.date.substr(0, 4) }/>
+                <PostDate
+                    month={ this.props.post.date.substr(5, 2) }
+                    date={ this.props.post.date.substr(8, 2) }
+                    year={ this.props.post.date.substr(0, 4) }
+                />
                 <Post
                     excerpt={ this.props.post.excerpt }
                     author= { this.props.post.author.first_name }
@@ -13,7 +18,7 @@ export default class BlogPost extends React.Component {
                     image= { this.props.post.thumbnail }
                     slug = { this.props.post.slug }
                     category= { this.props.post.categories[0].slug }
-                    />
+                />
             </div>
         )
     }
@@ -22,8 +27,8 @@ export default class BlogPost extends React.Component {
 function Post(props) {
     return (
         <div className='post'>
-            <h1><a href={ props.slug }>{ props.title }</a></h1>
-            <h5>Post about <a href={`/category/${props.category}`}>{ props.category }</a> by <a href="/aboutme" className='author red'>{ props.author }</a></h5>
+            <h1><Link  href={ { pathname: `/post/${props.slug}` } }><a>{ props.title }</a></Link></h1>
+            <h5>Post about <Link  href={ { pathname: `/category/${props.category}` } }><a>{ props.category }</a></Link> by <Link href={ {pathname: "/aboutme"} }><a className='author red'>{ props.author }</a></Link></h5>
 
             <div className='post-content'>
                 <img className='featured-image' src={ props.image } />
@@ -41,10 +46,12 @@ function PostDate(props) {
     var date = props.date
     return (
         <div className="post-date">
-            <a href={`/${props.year}/${month}/${date}`}>
+        <Link href={ {pathname: `/${props.year}/${month}/${date}`} }>
+            <a>
                 <h4>{ months[month] }</h4>
                 <h5>{ props.date }</h5>
             </a>
+        </Link>
         </div>
     )
 }
